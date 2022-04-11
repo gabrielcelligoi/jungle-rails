@@ -66,6 +66,42 @@ RSpec.describe User, type: :model do
       expect(@new_user.id).to_not be_present
     end
 
+    it 'the email verification should be case sensitive. throws an error if the email is already in use' do
+      @user = User.new(
+        first_name: 'Max', 
+        last_name: "Wilson", 
+        email: 'MAX@redbull.com', 
+        password: 'qwerty', 
+        password_confirmation: 'qwerty'
+      )
+      @user.save
+
+      @new_user = User.new(
+        first_name: 'Max', 
+        last_name: "Verstappen", 
+        email: 'max@redbull.com', 
+        password: 'q1w2e3', 
+        password_confirmation: 'q1w2e3'
+      )
+      @new_user.save
+
+      expect(@user.id).to be_present
+      expect(@new_user.id).to_not be_present
+    end
+
+    it 'Throws an error if the password have less than 3 characteres' do
+      @new_user = User.new(
+        first_name: 'Max', 
+        last_name: "Verstappen", 
+        email: 'max@redbull.com', 
+        password: '12', 
+        password_confirmation: '12'
+      )
+      @new_user.save
+
+      expect(@new_user.id).to_not be_present
+    end
+
   end
 
 end
