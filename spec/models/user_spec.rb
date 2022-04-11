@@ -104,4 +104,73 @@ RSpec.describe User, type: :model do
 
   end
 
+  describe '.authenticate_with_credentials' do
+    
+    it 'allows login if the authentication pass' do
+      @new_user = User.create(
+        first_name: 'Max', 
+        last_name: "Verstappen", 
+        email: 'max@redbull.com', 
+        password: 'q1w2e3', 
+        password_confirmation: 'q1w2e3'
+      )
+      @new_user.save
+
+      @new_user_auth = User.authenticate_with_credentials('max@redbull.com', 'q1w2e3')
+
+      expect(@new_user).to eq(@new_user_auth)
+
+    end
+
+    it 'not allows login if the authentication pass' do
+      @new_user = User.create(
+        first_name: 'Max', 
+        last_name: "Verstappen", 
+        email: 'max@redbull.com', 
+        password: 'q1w2e3', 
+        password_confirmation: 'q1w2e3'
+      )
+      @new_user.save
+
+      @new_user_auth = User.authenticate_with_credentials('max@redbull.com', 'qwerty')
+
+      expect(@new_user_auth).to eq(nil)
+
+    end
+
+    it 'allows authentication with spaces before or after email address' do
+      @new_user = User.create(
+        first_name: 'Max', 
+        last_name: "Verstappen", 
+        email: 'max@redbull.com', 
+        password: 'q1w2e3', 
+        password_confirmation: 'q1w2e3'
+      )
+      @new_user.save
+
+      @new_user_auth = User.authenticate_with_credentials('   max@redbull.com   ', 'q1w2e3')
+
+      expect(@new_user).to eq(@new_user_auth)
+
+    end
+
+    it 'allows login if there is case difference between the email registered and the auth email' do
+      @new_user = User.create(
+        first_name: 'Max', 
+        last_name: "Verstappen", 
+        email: 'max@redbull.com', 
+        password: 'q1w2e3', 
+        password_confirmation: 'q1w2e3'
+      )
+      @new_user.save
+
+      @new_user_auth = User.authenticate_with_credentials('MAX@redbull.com', 'q1w2e3')
+
+      expect(@new_user).to eq(@new_user_auth)
+
+    end
+
+  end
+
+
 end
