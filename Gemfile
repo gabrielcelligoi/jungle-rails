@@ -63,6 +63,5 @@ end
 group :test do
   gem 'capybara'
   gem 'poltergeist'
-  gem 'database_cleaner'
-  gem 'capybara-screenshot'
+  gem 'database_cleaner'  
 end
