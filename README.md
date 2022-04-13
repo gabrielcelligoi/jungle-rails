@@ -2,6 +2,18 @@
 
 A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
 
+Many features were already in place. I was responsable for adding the following:
+
+- Fix bug in money format with humanized_money_with_symbol
+- Implement "Sold Out" badge
+- User Authentication to admin content with bcrypt
+- Improve the navigation bar with login, logout and register
+- Implement "Order Details" page
+- Add "About" page
+- Add "Admin Dashboard" page with metrics on categories and products available in store
+- Create form and funcionalities to add new Category of products as admin
+- Test the web application with RSpec and Capybara
+
 ## Additional Steps for Apple M1 Machines
 
 1. Make sure that you are runnning Ruby 2.6.6 (`ruby -v`)
