@@ -14,6 +14,20 @@ Many features were already in place. I was responsable for adding the following:
 - Create form and funcionalities to add new Category of products as admin
 - Test the web application with RSpec and Capybara
 
+## Final Product
+
+!["Home Page"](https://github.com/gabrielcelligoi/jungle-rails/blob/master/docs/Jungle-home.png?raw=true)
+
+!["Form"](https://github.com/gabrielcelligoi/jungle-rails/blob/master/docs/Jungle-form.png?raw=true)
+
+!["Cart](https://github.com/gabrielcelligoi/jungle-rails/blob/master/docs/Jungle-cart.png?raw=true)
+
+!["Authentication"](https://github.com/gabrielcelligoi/jungle-rails/blob/master/docs/Jungle-authentication.png?raw=true)
+
+!["Admin Products"](https://github.com/gabrielcelligoi/jungle-rails/blob/master/docs/Jungle-admin-products.png?raw=true)
+
+
+
 ## Additional Steps for Apple M1 Machines
 
 1. Make sure that you are runnning Ruby 2.6.6 (`ruby -v`)
